@@ -3,13 +3,10 @@ import os
 import traceback
 from datetime import datetime, timedelta
 
-
 token = os.environ['DISCORD_BOT_TOKEN']
-
 
 @bot.event
 async def on_voice_state_update(member, before, after):
-
 
     if member.guild.id == 852145141909159947 and (before.channel != after.channel):
         now = datetime.utcnow() + timedelta(hours=9)
@@ -26,6 +23,5 @@ async def on_voice_state_update(member, before, after):
             embed.add_field(name="`始めた人`",value = f'{member.mention}')
             embed.add_field(name="`終了時間`",value = f'{now:%Y/%m/%d \n %H:%M}')
             await alert_channel.send(embed=embed)
-
 
 bot.run(token)
