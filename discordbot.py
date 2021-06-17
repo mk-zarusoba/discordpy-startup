@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
-@bot.event
+@client.event
 async def on_voice_state_update(member, before, after):
 
     if member.guild.id == 852145141909159947 and (before.channel != after.channel):
